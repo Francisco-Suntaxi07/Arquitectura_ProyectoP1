@@ -3,8 +3,14 @@ Proyecto del primer parcial de arquitectura de software, el proyeecto tendra una
 
 
 # CursosOnline_BackEnd
-Servidor del sitio web
+Servidor del sitio web  
+**Herramientas:**
+## Lista no ordenada
+
+- Elemento 1
+- Elemento 2
 
 
 # CursosOnline_FrontEnd
-Cliente del sitio web
+Cliente del sitio web  
+**Herramientas:**
