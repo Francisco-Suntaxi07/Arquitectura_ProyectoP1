@@ -6,7 +6,7 @@ Proyecto del primer parcial de arquitectura de software, el proyeecto tendra una
 Servidor del sitio web  
 **Herramientas:**
 - JDK 19.0.2
-- Spring Boot3.3.0
+- Spring Boot 3.3.0
 
 
 ## CursosOnline_FrontEnd
