@@ -1,4 +1,4 @@
-# ProyectoP1_arquitectura
+# Arquitectura_ProyectoP1
 Proyecto del primer parcial de arquitectura de software, el proyeecto tendra una arquitectura cliente-servidor  
 
 
