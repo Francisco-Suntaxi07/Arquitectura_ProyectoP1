@@ -5,8 +5,8 @@ Proyecto del primer parcial de arquitectura de software, el proyeecto tendra una
 ## CursosOnline_BackEnd
 Servidor del sitio web  
 **Herramientas:**
-- Elemento 1
-- Elemento 2
+- JDK 19.0.2
+- Spring Boot3.3.0
 
 
 ## CursosOnline_FrontEnd
