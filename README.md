@@ -2,9 +2,9 @@
 Proyecto del primer parcial de arquitectura de software, el proyeecto tendra una arquitectura cliente-servidor  
 
 
-**CARPETA**  
+**CursosOnline_BackEnd**  
 Servidor del sitio web
 
 
-**CARPETA2**  
+**CursosOnline_FrontEnd**  
 Cliente del sitio web
