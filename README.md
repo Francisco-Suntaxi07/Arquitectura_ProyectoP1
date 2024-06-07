@@ -4,11 +4,9 @@ Proyecto del primer parcial de arquitectura de software, el proyeecto tendra una
 
 **CARPETA**
 
-
 Servidor del sitio web
 
 
 **CARPETA2**
-
 
 Cliente del sitio web
