@@ -1,5 +1,8 @@
 /* SCRIPT DE LA BDD */
 
+SET CHARACTER SET utf8;
+SET NAMES utf8;
+
 -- Tabla ROL
 CREATE TABLE Rol (
     id_rol INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -40,7 +43,7 @@ INSERT INTO Rol (nombre_rol) VALUES
 
 -- DATOS DE USUARIO
 INSERT INTO Usuario (nombres_usuario, apellidos_usuario, email_usuario, contrasenia_usuario, id_rol) VALUES
-('Francisco', 'Suntaxi', 'sfsuntaxi1@espe.edu.ec', 'admin', 1),  -- Administrador
+('Francisco', 'Súntaxi', 'sfsuntaxi1@espe.edu.ec', 'admin', 1),  -- Administrador
 ('Nombre del admin', 'Apellido del admin', 'admin@admin.com', '12345678', 1),  -- Administrador
 ('Luis', 'Espinosa', 'lxespinosa@espe.edu.ec', '1234', 2),  -- Creador de contenido
 ('Ricardo', 'Grijalva', 'rsgrijalva@espe.edu.ec', '1234', 3);  -- Consumidor de contenido

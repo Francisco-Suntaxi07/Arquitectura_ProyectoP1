@@ -12,3 +12,4 @@ services:
       - '3307:3306'
     volumes:
       - ./scriptDB.sql:/docker-entrypoint-initdb.d/scriptDB.sql
+
