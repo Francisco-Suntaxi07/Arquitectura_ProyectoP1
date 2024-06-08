@@ -3,7 +3,6 @@ version: '3'
 services:
   db:
     image: mysql:latest
-    restart: on-failure
     container_name: bdd_proyectoP1
     environment:
       - MYSQL_DATABASE=bdd_cursos_online
