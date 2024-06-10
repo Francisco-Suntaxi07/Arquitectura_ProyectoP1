@@ -27,7 +27,7 @@ public class UserRestController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<UserEntity>> findUserById(@PathVariable Long id){
+    public ResponseEntity<Optional<UserEntity>> findUserById(@PathVariable String id){
         return ResponseEntity.ok().body(userService.findUserById(id));
     }
 
@@ -40,7 +40,7 @@ public class UserRestController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteUserById(@PathVariable Long id){
+    public ResponseEntity<?> deleteUserById(@PathVariable String id){
         boolean isDeleted = userService.deleteUserById(id);
         if(isDeleted){
             return ResponseEntity.noContent().build();

@@ -9,20 +9,16 @@ import jakarta.validation.constraints.NotNull;
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotEmpty
     @Column(name = "id_usuario")
-    private Long id;
+    private String id;
 
     @NotEmpty
-    @Column(name = "nombres_usuario")
+    @Column(name = "nombre_usuario")
     private String name;
 
     @NotEmpty
-    @Column(name = "apellidos_usuario")
-    private String lastName;
-
-    @NotEmpty
-    @Column(name = "email_usuario")
+    @Column(name = "correo_usuario")
     private String email;
 
     @NotEmpty
@@ -30,18 +26,18 @@ public class UserEntity {
     private String password;
 
     @NotNull
-    @Column(name = "id_rol")
-    private Long id_role;
+    @Column(name = "rol_usuario")
+    private String role;
 
     public UserEntity() {
         super();
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -51,14 +47,6 @@ public class UserEntity {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
     }
 
     public String getEmail() {
@@ -77,11 +65,12 @@ public class UserEntity {
         this.password = password;
     }
 
-    public Long getId_role() {
-        return id_role;
+    public String getRole() {
+        return role;
     }
 
-    public void setId_role(Long id_role) {
-        this.id_role = id_role;
+    public void setRole(String role) {
+        this.role = role;
     }
+
 }

@@ -9,10 +9,10 @@ public interface IUserService {
 
     public List<UserEntity> findAllUsers();
 
-    public Optional<UserEntity> findUserById(Long id);
+    public Optional<UserEntity> findUserById(String id);
 
     public UserEntity saveUser(UserEntity user);
 
-    public Boolean deleteUserById(Long id);
+    public Boolean deleteUserById(String id);
 
 }

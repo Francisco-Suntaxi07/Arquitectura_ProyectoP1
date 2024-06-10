@@ -21,7 +21,7 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public Optional<UserEntity> findUserById(Long id) {
+    public Optional<UserEntity> findUserById(String id) {
         return userRepository.findById(id);
     }
 
@@ -31,7 +31,7 @@ public class UserService implements IUserService{
     }
 
     @Override
-    public Boolean deleteUserById(Long id) {
+    public Boolean deleteUserById(String id) {
         if (userRepository.existsById(id)){
             userRepository.deleteById(id);
             return true;
