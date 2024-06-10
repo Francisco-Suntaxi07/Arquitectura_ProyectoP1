@@ -7,8 +7,7 @@ Servidor del sitio web
 **Herramientas:**
 - JDK 19.0.2
 - Spring Boot 3.3.0
-- Docker Desktop 4.30.0
-- MySQL 8.4.0  
+- Docker Desktop 4.30.0 - MySQL 8.4.0  
 
 
 ## CursosOnline_FrontEnd
