@@ -37,7 +37,7 @@ CREATE TABLE curso (
     id_creador VARCHAR(16) NOT NULL,
     nombre_curso VARCHAR(50) NOT NULL,
     descripcion_curso VARCHAR(255),
-    estado_curso VARCHAR(20) NOT NULL,
+    estado_curso VARCHAR(24) NOT NULL,
     fecha_inicio_curso DATE,
     fecha_fin_curso DATE,
     FOREIGN KEY (id_creador) REFERENCES creador(id_creador)

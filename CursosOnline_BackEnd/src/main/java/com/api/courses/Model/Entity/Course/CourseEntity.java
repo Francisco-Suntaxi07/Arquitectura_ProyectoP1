@@ -17,6 +17,10 @@ public class CourseEntity {
     private Long id;
 
     @NotEmpty
+    @Column(name = "id_creador")
+    private String creator;
+
+    @NotEmpty
     @Column(name = "nombre_curso")
     private String name;
 
@@ -25,23 +29,13 @@ public class CourseEntity {
 
     @NotEmpty
     @Column(name = "estado_curso")
-    private String status;
-
-    @Column(name = "cupo_maximo_curso")
-    private int maxCapacity;
-
-    @Column(name = "precio_curso")
-    private BigDecimal price;
+    private String status = "En construcción";
 
     @Column(name = "fecha_inicio_curso")
     private LocalDate startDate;
 
     @Column(name = "fecha_fin_curso")
     private LocalDate endDate;
-
-    @NotNull
-    @Column(name = "id_usuario")
-    private Long idUser;
 
     public CourseEntity() {
         super();
@@ -53,6 +47,14 @@ public class CourseEntity {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
     }
 
     public String getName() {
@@ -79,22 +81,6 @@ public class CourseEntity {
         this.status = status;
     }
 
-    public int getMaxCapacity() {
-        return maxCapacity;
-    }
-
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -109,13 +95,5 @@ public class CourseEntity {
 
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
-    }
-
-    public Long getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(Long idUser) {
-        this.idUser = idUser;
     }
 }
