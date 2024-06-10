@@ -43,6 +43,15 @@ CREATE TABLE curso (
     FOREIGN KEY (id_creador) REFERENCES creador(id_creador)
 );
 
+-- Tabla CURSO
+CREATE TABLE subscripcion (
+    id_subscripcion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_usuario VARCHAR(16) NOT NULL,
+    id_curso INT NOT NULL,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario),
+    FOREIGN KEY (id_curso) REFERENCES curso(id_curso)
+);
+
 
 -- ** DATOS DE LAS TABLAS **
 
@@ -68,3 +77,8 @@ INSERT INTO curso (id_creador, nombre_curso, descripcion_curso, estado_curso, fe
 ('1012345678','Programación de redes neuronales con python', 'Curso introductorio de programación de redes neuronales convolucionales en Python', 'En construcción', '2024-07-01', '2024-08-30'),  -- Creado por Luis Espinosa
 ('1012345678','Diseño Gráfico Avanzado', 'Curso avanzado de diseño gráfico', 'Inactivo', '2024-06-15', '2024-08-15'),  -- Creado por Luis Espinosa
 ('1012345678','Introducción a la Inteligencia Artificial', 'Curso básico sobre IA', 'Activo', '2024-07-10', '2024-09-10');  -- Creado por Nombre del admin
+
+
+-- DATOS SUBSCRIPCION
+INSERT INTO subscripcion(id_usuario, id_curso) VALUE
+('1787654321',1);
