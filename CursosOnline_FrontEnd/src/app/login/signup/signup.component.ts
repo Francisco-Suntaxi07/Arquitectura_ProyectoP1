@@ -11,9 +11,9 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent {
   password: string = '';
-  isOpen = true;  // Usar esta variable para controlar la visibilidad del modal
-  passwordStrength: string = ''; // Variable para mostrar la fortaleza de la contraseña
-  passwordMessage: string = ''; // Variable para mostrar el mensaje de fortaleza
+  isOpen = true;  
+  passwordStrength: string = ''; 
+  passwordMessage: string = ''; 
 
   constructor(
     public dialogRef: MatDialogRef<SignupComponent>,
@@ -22,7 +22,6 @@ export class SignupComponent {
 
   submitForm(form: NgForm): void {
     if (form.valid) {
-      // Manejar la lógica de envío del formulario aquí (por ejemplo, llamada a API)
       this.closeSignIn();
     }
   }

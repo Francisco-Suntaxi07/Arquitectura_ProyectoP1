@@ -3,12 +3,13 @@
     <form class="form" #signupForm="ngForm" (ngSubmit)="submitForm(signupForm)">
         <mat-form-field class="input">
             <mat-label>Nombre y Apellido</mat-label>
-            <input matInput placeholder="Nombre y Apellido" id="name" name="name" required required maxlength="64"  (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)"/>
+            <input matInput placeholder="Nombre y Apellido" id="name" name="name" required required maxlength="64"
+                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="E-mail" id="email" name="email" type="email" required required
-                maxlength="32"  (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)"/>
+            <input matInput placeholder="E-mail" id="email" name="email" type="email" required required maxlength="32"
+                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
         </mat-form-field>
 
         <mat-form-field class="input">
