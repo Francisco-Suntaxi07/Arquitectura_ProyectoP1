@@ -27,9 +27,9 @@
         <span></span>
         <span></span>
         <span></span>
-     </div>
+    </div>
     <div class="signup">
-        <h2>Sign Up</h2>
+        <h2>Sign In</h2>
         <form class="form">
             <div class="textbox">
                 <input type="text" required />
@@ -45,18 +45,22 @@
                     lock
                 </span>
             </div>
-            <button class="boton-singin">
+            <button class="boton-signin">
                 Sing-in
                 <span class="material-icons">
                     arrow_forward
                 </span>
             </button>
-            <button class="boton-registro" aligment="center">
-                ¿No tienes cuenta?, Registrate!
-                <span class="material-icons">
-                    
-                </span>
-            </button>
+
         </form>
+       
+        <button class="boton-sigup" (click)="openSignIn()">
+            ¿No tienes cuenta? Registrate!
+            <span class="material-icons">  
+            </span>
+        </button>
+
     </div>
 </body>
+
+
