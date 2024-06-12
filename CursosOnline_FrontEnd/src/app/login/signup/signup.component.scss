@@ -1,69 +1,95 @@
-/* registro.component.css */
-.overlay {
-    position: fixed;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.55s, visibility 0.55s;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.75);
+.container {
+    max-width: 300px;
+    max-height: 450px;
+    background: #f8f9fd;
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%, rgb(244, 247, 251) 100%);
+    border-radius: 40px;
+    padding: 25px 35px;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 30px 30px -20px;
+    margin: 20px;
   }
   
-  .overlay.open {
-    visibility: visible;
-    opacity: 1;
-    animation: overlay-in 1s both;
+  .heading {
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    color: rgb(16, 137, 211);
   }
   
-  @keyframes overlay-in {
-    0% {
-      transform: scale(0, 0.004);
-    }
-    33% {
-      transform: scale(1, 0.004);
-    }
-    66%,
-    100% {
-      transform: scale(1, 1);
-    }
+  .form {
+    margin-top: 10px;
   }
   
-  .modal {
-    position: fixed;
-    z-index: 2;
-    width: 430px;
-    top: 50%;
-    left: 50%;
-    background: #ffffff;
-    border-radius: 12px;
-    padding: 0 40px 50px;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.24);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.55s, visibility 0.55s;
+  .form .input {
+    width: calc(100% - 30px); 
+    background: white;
+    border: none;
+    height: 35px;
+    padding: 10px 15px; 
+    border-radius: 15px;
+    margin-top: 10px;
+    box-shadow: #cff0ff 0px 10px 10px -5px;
   }
   
-  .overlay.open .modal {
-    opacity: 1;
-    visibility: visible;
-    animation: modal-in 1.15s both;
+  .form .input::-moz-placeholder {
+    color: rgb(170, 170, 170);
   }
   
-  @keyframes modal-in {
-    0%,
-    66% {
-      opacity: 0;
-      visibility: hidden;
-      transform: translate(50%, 40%);
-    }
-    100% {
-      opacity: 1;
-      visibility: visible;
-      transform: translate(-50%, -50%);
-    }
+  .form .input::placeholder {
+    color: rgb(170, 170, 170);
+  }
+  
+  .form .input:focus {
+    outline: none;
+    border: 2px solid #12b1d1; 
+  }
+  
+  .form .login-button {
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    background: linear-gradient(45deg, rgb(16, 137, 211) 0%, rgb(18, 177, 209) 100%);
+    color: white;
+    padding: 8px;
+    margin: 15px auto; 
+    border-radius: 15px;
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 20px 10px -15px;
+    border: none;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .form .login-button:hover {
+    transform: scale(1.03);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 23px 10px -20px;
+  }
+  
+  .form .login-button:active {
+    transform: scale(0.95);
+    box-shadow: rgba(133, 189, 215, 0.8784313725) 0px 15px 10px -10px;
+  }
+  
+  .password-strength-bar {
+    height: 5px;
+    margin-top: 5px;
+  }
+  
+  .password-strength-bar.weak {
+    background-color: #ffcccb; /* Rojo claro para contraseña débil */
+  }
+  
+  .password-strength-bar.medium {
+    background-color: #ffd700; /* Amarillo para contraseña media */
+  }
+  
+  .password-strength-bar.strong {
+    background-color: #7fff00; /* Verde para contraseña fuerte */
+  }
+  
+  .password-message {
+    font-size: 14px;
+    margin-top: 5px;
+    color: #555;
+    text-align: center;
   }
   
