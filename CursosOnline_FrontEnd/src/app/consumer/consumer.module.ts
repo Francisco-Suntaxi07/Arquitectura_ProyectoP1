@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { ConsumerRoutingModule } from './consumer-routing.module';
 import { DashboardConsumerComponent } from './dashboard-consumer/dashboard-consumer.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -11,6 +12,7 @@ import { DashboardConsumerComponent } from './dashboard-consumer/dashboard-consu
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ConsumerRoutingModule
   ]
 })
