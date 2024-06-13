@@ -11,11 +11,13 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { SigninComponent } from './signin/signin.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     SignupComponent,
+    SigninComponent,
   ],
   imports: [
     CommonModule,
