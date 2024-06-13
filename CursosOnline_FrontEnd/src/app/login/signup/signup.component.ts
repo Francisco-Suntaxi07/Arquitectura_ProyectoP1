@@ -20,15 +20,6 @@ export class SignupComponent {
     private router: Router,
   ) { }
 
-  submitForm(form: NgForm): void {
-    if (form.valid) {
-      this.closeSignIn();
-    }
-  }
-
-  closeSignIn(): void {
-    this.dialogRef.close();
-  }
 
   //Control de Seguridad de Contraseña
   checkPasswordStrength(): void {

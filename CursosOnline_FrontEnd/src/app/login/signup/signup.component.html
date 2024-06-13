@@ -1,6 +1,6 @@
 <div class="container">
     <h2 class="heading">Sign Up</h2>
-    <form class="form" #signupForm="ngForm" (ngSubmit)="submitForm(signupForm)">
+    <form class="form" >
         <mat-form-field class="input">
             <mat-label>Nombre y Apellido</mat-label>
             <input matInput placeholder="Nombre y Apellido" id="name" name="name" required required maxlength="64"
@@ -30,11 +30,11 @@
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>Tipo de Cuenta</mat-label>
-            <mat-select id="occupation" name="occupation" required>
+            <mat-select id="cuenta" name="cuenta" required>
                 <mat-option value="creator">Creador de contenido</mat-option>
                 <mat-option value="student">Estudiante</mat-option>
             </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="login-button" [disabled]="signupForm.invalid">Sign Up</button>
+        <button mat-raised-button color="primary" class="login-button">Sign Up</button>
     </form>
 </div>
