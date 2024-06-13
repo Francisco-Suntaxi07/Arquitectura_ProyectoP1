@@ -3,18 +3,18 @@
     <form class="form" >
         <mat-form-field class="input">
             <mat-label>Nombre y Apellido</mat-label>
-            <input matInput placeholder="Nombre y Apellido" id="name" name="name" required required maxlength="64"
+            <input matInput  id="name" name="name" required required maxlength="64"
                 (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="E-mail" id="email" name="email" type="email" required required maxlength="32"
+            <input matInput id="email" name="email" type="email" required required maxlength="32"
                 (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
         </mat-form-field>
 
         <mat-form-field class="input">
             <mat-label>Password</mat-label>
-            <input matInput placeholder="Password" id="password" name="password" type="password" required
+            <input matInput  id="password" name="password" type="password" required
                 [(ngModel)]="password" #passwordInput="ngModel" (keyup)="checkPasswordStrength()" required
                 maxlength="16">
             <div *ngIf="password">
@@ -25,7 +25,7 @@
         <br><br>
         <mat-form-field class="input">
             <mat-label>Confirm Password</mat-label>
-            <input matInput placeholder="Confirm Password" id="confirmPassword" name="confirmPassword" type="password"
+            <input matInput  id="confirmPassword" name="confirmPassword" type="password"
                 required required maxlength="16" />
         </mat-form-field>
         <mat-form-field class="input">
