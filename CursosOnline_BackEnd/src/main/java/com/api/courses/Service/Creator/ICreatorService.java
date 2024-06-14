@@ -15,4 +15,6 @@ public interface ICreatorService {
 
     public Boolean deleteCreatorById(String id);
 
+    public List<CreatorEntity> findAllDisableCreators();
+
 }

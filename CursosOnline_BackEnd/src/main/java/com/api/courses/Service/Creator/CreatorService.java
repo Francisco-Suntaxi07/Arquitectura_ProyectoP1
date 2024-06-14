@@ -38,4 +38,9 @@ public class CreatorService implements ICreatorService{
         }
         return false;
     }
+
+    @Override
+    public List<CreatorEntity> findAllDisableCreators() {
+        return creatorRepository.findAllDisable().orElse(new ArrayList<>());
+    }
 }

@@ -49,6 +49,11 @@ public class CreatorRestController {
         return  ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/disable")
+    public ResponseEntity<List<CreatorEntity>> findAllDisableCreators(){
+        return ResponseEntity.ok().body(creatorService.findAllDisableCreators());
+    }
+
     protected ResponseEntity<?> validate(BindingResult result){
         Map<String, Object> errores = new HashMap<>();
         result.getFieldErrors().forEach(err -> {
