@@ -14,5 +14,5 @@ public interface IUserService {
     public UserEntity saveUser(UserEntity user);
 
     public Boolean deleteUserById(String id);
-
+    public UserEntity findByEmail(String email);
 }

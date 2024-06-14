@@ -47,6 +47,15 @@ public class UserRestController {
         }
         return  ResponseEntity.notFound().build();
     }
+    @PostMapping("/api/login")
+    public ResponseEntity<?> login(@RequestBody UserEntity user) {
+        UserEntity foundUser = userService.findByEmail(user.getEmail());
+        if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
+            return ResponseEntity.ok().body("{\"role\": \"" + foundUser.getRole() + "\"}");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales Inválidas");
+        }
+    }
 
     protected ResponseEntity<?> validate(BindingResult result){
         Map<String, Object> errores = new HashMap<>();

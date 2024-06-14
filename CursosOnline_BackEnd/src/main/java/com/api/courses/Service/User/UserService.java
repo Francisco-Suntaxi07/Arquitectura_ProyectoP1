@@ -38,4 +38,8 @@ public class UserService implements IUserService{
         }
         return false;
     }
+    @Override
+    public UserEntity findByEmail(String email) {
+        return userRepository.findByEmail(email);
+    }
 }
