@@ -64,7 +64,7 @@ INSERT INTO rol (nombre_rol) VALUES
 
 -- DATOS DE USUARIO
 INSERT INTO usuario (id_usuario, nombre_usuario, correo_usuario, contrasenia_usuario, rol_usuario) VALUES
-('1726189754', 'Francisco Suntaxi', 'sfsuntaxi1@espe.edu.ec', 'admin', 'CREADOR_C'),  -- Administrador
+('1726189754', 'Francisco Suntaxi', 'sfsuntaxi1@espe.edu.ec', 'admin', 'ADMINISTRADOR'),  -- Administrador
 ('1726189755', 'Nombre del admin', 'admin@admin.com', '12345678', 'ADMINISTRADOR'),  -- Administrador
 ('1787654321', 'Ricardo Grijalva', 'rsgrijalva@espe.edu.ec', '1234', 'CONSUMIDOR_C');  -- Consumidor de contenido
 
