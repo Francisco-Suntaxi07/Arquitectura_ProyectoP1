@@ -1,0 +1,35 @@
+<div class="container">
+    <h2 class="heading">CREAR CURSO</h2>
+    <form class="form" [formGroup]="createCourseForm">
+
+        <mat-form-field class="input">
+            <mat-label>Nombre Curso</mat-label>
+            <input matInput formControlName="name" name="name" required required maxlength="32"
+                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
+        </mat-form-field>
+        <mat-form-field class="input">
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="description" name="description" required required maxlength="255"
+                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
+        </mat-form-field>
+        <mat-form-field class="input">
+            <mat-label>Fecha Inicio (dd-mm-yy)</mat-label>
+            <input matInput formControlName="start-date" name="start-date" required required maxlength="8"
+                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
+        </mat-form-field>
+        <mat-form-field class="input">
+            <mat-label>Fecha Fin (dd-mm-yy)</mat-label>
+            <input matInput formControlName="finish-date" name="finish-date" required required maxlength="8"
+                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
+        </mat-form-field>
+        <mat-form-field class="input">
+            <mat-label>Estado Curso</mat-label>
+            <mat-select formControlName="status" name="status" required>
+                <mat-option value="ACTIVO">Activo</mat-option>
+                <mat-option value="DESACTIVO">Desactivo</mat-option>
+                <mat-option value="CONSTRUCCION">En Construccion</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="login-button">Crear Curso</button>
+    </form>
+</div>
