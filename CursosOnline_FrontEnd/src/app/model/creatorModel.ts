@@ -5,4 +5,5 @@ export class CreatorModel {
     password?: string;
     role?: string;
     numberCourses: number = 0;
+    statusAccount: boolean = false;
 }
