@@ -28,5 +28,7 @@ export class UserService {
   delete(id: string): Observable<any> {
     return this.http.delete<any>(`${this.urlEndPoint}/delete/${id}`);
   }
-
+  login(credentials: { email: string, password: string }): Observable<any> {
+    return this.http.post<any>(`${this.urlEndPoint}/api/login`, credentials);
+  }
 }
