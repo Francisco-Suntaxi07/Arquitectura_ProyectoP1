@@ -14,22 +14,28 @@
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>Fecha Inicio (dd-mm-yy)</mat-label>
-            <input matInput formControlName="start-date" name="start-date" required required maxlength="8"
-                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
+            <input matInput formControlName="startDate" name="startDate" required required maxlength="8"
+                [matDatepicker]="pickerStartDate" [min]="minDate" (keydown)="disallowSpecialCharacters($event)"
+                (paste)="handlePaste($event)" />
+            <mat-datepicker-toggle matSuffix [for]="pickerStartDate"></mat-datepicker-toggle>
+            <mat-datepicker #pickerStartDate></mat-datepicker>
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>Fecha Fin (dd-mm-yy)</mat-label>
-            <input matInput formControlName="finish-date" name="finish-date" required required maxlength="8"
-                (keydown)="disallowSpecialCharacters($event)" (paste)="handlePaste($event)" />
+            <input matInput formControlName="endDate" name="endDate" required required maxlength="8"
+                [matDatepicker]="pickerEndDate" [min]="minDate" (keydown)="disallowSpecialCharacters($event)"
+                (paste)="handlePaste($event)" />
+            <mat-datepicker-toggle matSuffix [for]="pickerEndDate"></mat-datepicker-toggle>
+            <mat-datepicker #pickerEndDate></mat-datepicker>
         </mat-form-field>
         <mat-form-field class="input">
             <mat-label>Estado Curso</mat-label>
             <mat-select formControlName="status" name="status" required>
-                <mat-option value="ACTIVO">Activo</mat-option>
-                <mat-option value="DESACTIVO">Desactivo</mat-option>
-                <mat-option value="CONSTRUCCION">En Construccion</mat-option>
+                <mat-option value="Activo">Activo</mat-option>
+                <mat-option value="Inactivo">Desactivo</mat-option>
+                <mat-option value="En construcción">En Construccion</mat-option>
             </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="login-button">Crear Curso</button>
+        <button mat-raised-button color="primary" class="login-button" (click)="saveNewCourse()">Crear Curso</button>
     </form>
 </div>

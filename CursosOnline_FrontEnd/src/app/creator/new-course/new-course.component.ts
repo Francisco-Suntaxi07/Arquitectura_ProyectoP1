@@ -3,8 +3,10 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SignupComponent } from 'src/app/login/signup/signup.component';
+import { CourseModel } from 'src/app/model/courseModel';
 import { CreatorModel } from 'src/app/model/creatorModel';
 import { UserModel } from 'src/app/model/userModel';
+import { CourseService } from 'src/app/service/course.service';
 import { CreatorService } from 'src/app/service/creator.service';
 import { UserService } from 'src/app/service/user.service';
 
@@ -15,16 +17,47 @@ import { UserService } from 'src/app/service/user.service';
 })
 export class NewCourseComponent {
 
-  
-  private _createCourseForm: FormGroup = this._formBuilder.group({
+  minDate = new Date();
 
+  private _createCourseForm: FormGroup = this._formBuilder.group({
+    name: ['', [Validators.required]],
+    description: ['', [Validators.required]],
+    status: ['', [Validators.required]],
+    startDate: '',
+    endDate: ''
   });
 
   constructor(
     public dialogRef: MatDialogRef<NewCourseComponent>,
     private _formBuilder: FormBuilder,
+    private courseService: CourseService,
+    private snackBar: MatSnackBar,
   ) { }
 
+
+  saveNewCourse(): void {
+    let course: CourseModel = new CourseModel;
+
+    course = this.createCourseForm.value;
+    course.creator = "1012345678"
+    this.courseService.save(course).subscribe({
+      next: () => {
+        this.snackBar.open("✅ Curso creado correctamente", "Cerrar", {
+          duration: 2500
+        });
+        this.dialogRef.close();
+      },
+      error: (error) => {
+        this.snackBar.open("⛔ Ocurrió un error al crear un nuevo curso", "Cerrar", {
+          duration: 2500
+        });
+        console.log(error);
+      }
+    });
+  }
+
+
+  /* VALIDACIONES DEL FORMULARIO */
 
   // Desactivación de las teclas especiales mencionadas abajo
   disallowSpecialCharacters(event: KeyboardEvent): void {
