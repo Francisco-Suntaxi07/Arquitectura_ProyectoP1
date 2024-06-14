@@ -29,4 +29,8 @@ export class CreatorService {
     return this.http.delete<any>(`${this.urlEndPoint}/delete/${id}`);
   }
 
+  public findDisable(): Observable<CreatorModel[]> {
+    return this.http.get<CreatorModel[]>(`${this.urlEndPoint}/disable`);
+  }
+
 }

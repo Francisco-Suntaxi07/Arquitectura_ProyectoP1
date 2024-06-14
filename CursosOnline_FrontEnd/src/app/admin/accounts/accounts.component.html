@@ -1,4 +1,13 @@
 <div class="container">
-    <h2 class="heading">Solicitudes</h2>
-
+  <h2 class="heading">Solicitudes</h2>
+  <mat-list>
+    <mat-selection-list (selectionChange)="onSelectionChange($event)">
+      <mat-list-option *ngFor="let creatorDisable of creatorDisabledList" [value]="creatorDisable">
+        <mat-icon mat-list-icon>manage_accounts</mat-icon>
+        <div mat-line><b>{{creatorDisable.id}}</b></div>
+        <div mat-line>{{creatorDisable.name}}</div>
+      </mat-list-option>
+    </mat-selection-list>
+  </mat-list>
+  <button class="btn btn-secondary" (click)="activateAccounts()" >Solicitudes Cuentas</button>
 </div>
