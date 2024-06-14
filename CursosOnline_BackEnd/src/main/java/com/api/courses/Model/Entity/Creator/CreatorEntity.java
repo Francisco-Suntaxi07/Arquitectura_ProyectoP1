@@ -34,6 +34,9 @@ public class CreatorEntity {
     @Column(name = "cursos_creador")
     private int numberCourses = 0;
 
+    @Column(name = "estado_cuenta_creador")
+    private Boolean statusAccount = false;
+
     public CreatorEntity() {
         super();
     }
@@ -84,5 +87,13 @@ public class CreatorEntity {
 
     public void setNumberCourses(int numberCourses) {
         this.numberCourses = numberCourses;
+    }
+
+    public Boolean getStatusAccount() {
+        return statusAccount;
+    }
+
+    public void setStatusAccount(Boolean statusAccount) {
+        this.statusAccount = statusAccount;
     }
 }

@@ -28,7 +28,8 @@ CREATE TABLE creador (
     correo_creador VARCHAR(32) NOT NULL,
     contrasenia_creador VARCHAR(16) NOT NULL,
     rol_creador VARCHAR(16) NOT NULL,
-    cursos_creador INT DEFAULT 0
+    cursos_creador INT DEFAULT 0,
+    estado_cuenta_creador TINYINT(1) NOT NULL DEFAULT 0
 );
 
 -- Tabla CURSO
