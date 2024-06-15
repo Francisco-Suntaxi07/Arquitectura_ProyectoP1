@@ -14,6 +14,7 @@ import { SignupComponent } from '../signup/signup.component';
 })
 export class HomeComponent {
   signInForm: FormGroup;
+
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -27,27 +28,41 @@ export class HomeComponent {
       password: ['', [Validators.required]]
     });
   }
+
   login(): void {
     if (this.signInForm.valid) {
       this.userService.login(this.signInForm.value).subscribe({
         next: (response: any) => {
           const role = response.role;
           console.log('Rol:', role);
-          if (role === 'ADMINISTRADOR') {
-            this.router.navigate(['/admin']);
-          } else if (role === 'CREADOR_C') {
-            this.router.navigate(['/creator']);
-          } else if (role === 'CONSUMIDOR_C') {
-            this.router.navigate(['/consumer']);
-          }
+          this.redirectBasedOnRole(role);
         },
         error: (err) => {
-          this.snackBar.open('Login failed', 'Close', { duration: 2500 });
-          console.error('Login failed', err);
+          this.creatorService.login(this.signInForm.value).subscribe({
+            next: (response: any) => {
+              const role = response.role;
+              console.log('Rol:', role);
+              this.redirectBasedOnRole(role);
+            },
+            error: (err) => {
+              this.snackBar.open('Login failed', 'Close', { duration: 2500 });
+              console.error('Login failed', err);
+            }
+          });
         }
       });
     }
   }
+  redirectBasedOnRole(role: string): void {
+    if (role === 'ADMINISTRADOR') {
+      this.router.navigate(['/admin']);
+    } else if (role === 'CREADOR_C') {
+      this.router.navigate(['/creator']);
+    } else if (role === 'CONSUMIDOR_C') {
+      this.router.navigate(['/consumer']);
+    }
+  }
+
   openSignIn(): void {
     const dialogRef = this.dialog.open(SignupComponent);
     dialogRef.afterClosed().subscribe(result => {

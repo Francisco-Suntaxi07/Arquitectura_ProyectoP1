@@ -32,5 +32,7 @@ export class CreatorService {
   public findDisable(): Observable<CreatorModel[]> {
     return this.http.get<CreatorModel[]>(`${this.urlEndPoint}/disable`);
   }
-
+  public login(credentials: { email: string, password: string }): Observable<any> {
+    return this.http.post<any>(`${this.urlEndPoint}/login`, credentials);
+  }
 }
