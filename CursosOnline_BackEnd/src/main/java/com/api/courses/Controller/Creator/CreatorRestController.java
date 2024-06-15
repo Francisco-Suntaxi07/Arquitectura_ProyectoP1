@@ -53,6 +53,17 @@ public class CreatorRestController {
     public ResponseEntity<List<CreatorEntity>> findAllDisableCreators(){
         return ResponseEntity.ok().body(creatorService.findAllDisableCreators());
     }
+    @PostMapping("/login")
+    public ResponseEntity<?> login(@RequestBody CreatorEntity creator) {
+        Optional<CreatorEntity> foundCreator = creatorService.findByEmailAndPassword(creator.getEmail(), creator.getPassword());
+        if (foundCreator.isPresent()) {
+            Map<String, String> response = new HashMap<>();
+            response.put("role", foundCreator.get().getRole());
+            return ResponseEntity.ok().body(response);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
+        }
+    }
 
     protected ResponseEntity<?> validate(BindingResult result){
         Map<String, Object> errores = new HashMap<>();
