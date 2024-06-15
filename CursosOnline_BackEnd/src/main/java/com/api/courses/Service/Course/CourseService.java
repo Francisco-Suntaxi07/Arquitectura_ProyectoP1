@@ -40,7 +40,7 @@ public class CourseService implements ICourseService{
     }
 
     @Override
-    public List<CourseEntity> findCoursesByCreators(String name) {
+    public List<CourseEntity> findCoursesByCreator(String name) {
         return courseRepository.findByCreator(name).orElse(new ArrayList<>());
     }
 }

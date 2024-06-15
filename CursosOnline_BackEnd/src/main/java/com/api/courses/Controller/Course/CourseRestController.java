@@ -50,7 +50,7 @@ public class CourseRestController {
 
     @GetMapping("/creator/{name}")
     public ResponseEntity<List<CourseEntity>> findCoursesByCreators(@PathVariable String name){
-        return ResponseEntity.ok().body(courseService.findCoursesByCreators(name));
+        return ResponseEntity.ok().body(courseService.findCoursesByCreator(name));
     }
 
     protected ResponseEntity<?> validate(BindingResult result){

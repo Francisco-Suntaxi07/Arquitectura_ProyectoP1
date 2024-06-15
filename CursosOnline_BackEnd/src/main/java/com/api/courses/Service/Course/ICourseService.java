@@ -15,8 +15,6 @@ public interface ICourseService {
 
     public Boolean deleteCourseById(Long id);
 
-    public List<CourseEntity> findCoursesByCreators(String name);
-
-
+    public List<CourseEntity> findCoursesByCreator(String name);
 
 }
