@@ -12,4 +12,7 @@ import java.util.Optional;
 public interface ICreatorRepository extends CrudRepository<CreatorEntity, String> {
     @Query(value = "SELECT u FROM CreatorEntity u WHERE u.statusAccount = false")
     public Optional<List<CreatorEntity>> findAllDisable();
+
+    Optional<CreatorEntity> findByEmailAndPassword(String email, String password);
 }
+

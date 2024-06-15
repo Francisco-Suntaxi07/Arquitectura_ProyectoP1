@@ -38,7 +38,10 @@ public class CreatorService implements ICreatorService{
         }
         return false;
     }
-
+    @Override
+    public Optional<CreatorEntity> findByEmailAndPassword(String email, String password) {
+        return creatorRepository.findByEmailAndPassword(email, password);
+    }
     @Override
     public List<CreatorEntity> findAllDisableCreators() {
         return creatorRepository.findAllDisable().orElse(new ArrayList<>());
