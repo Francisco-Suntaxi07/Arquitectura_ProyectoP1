@@ -48,6 +48,10 @@ public class CourseRestController {
         return  ResponseEntity.notFound().build();
     }
 
+    @GetMapping("/creator/{name}")
+    public ResponseEntity<List<CourseEntity>> findCoursesByCreators(@PathVariable String name){
+        return ResponseEntity.ok().body(courseService.findCoursesByCreators(name));
+    }
 
     protected ResponseEntity<?> validate(BindingResult result){
         Map<String, Object> errores = new HashMap<>();
