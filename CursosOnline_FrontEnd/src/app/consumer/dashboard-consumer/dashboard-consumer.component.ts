@@ -3,6 +3,7 @@ import { CourseService } from 'src/app/service/course.service';
 import { CreatorService } from 'src/app/service/creator.service';
 import { CourseModel } from 'src/app/model/courseModel';
 import { forkJoin } from 'rxjs';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-dashboard-consumer',
@@ -18,10 +19,15 @@ export class DashboardConsumerComponent implements OnInit {
     { value: 6000, label: 'ESTUDIANTES', subLabel: 'FELICES', bgClass: 'bg-warning' },
   ];
 
-  constructor(private courseService: CourseService, private creatorService: CreatorService) { }
+  constructor(
+    private courseService: CourseService, 
+    private creatorService: CreatorService, 
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
     this.loadCourses();
+    console.log(this.authService.getCurrentUser()?.id);
   }
 
   loadCourses(): void {

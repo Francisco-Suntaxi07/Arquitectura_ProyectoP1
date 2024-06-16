@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   // Método para obtener el usuario actual
-  getCurrentUser(): UserModel | CreatorModel | any | null {
+  getCurrentUser(): UserModel | CreatorModel | any |null {
     const userString = localStorage.getItem(this.currentUserKey);
     if (userString) {
       return JSON.parse(userString);
