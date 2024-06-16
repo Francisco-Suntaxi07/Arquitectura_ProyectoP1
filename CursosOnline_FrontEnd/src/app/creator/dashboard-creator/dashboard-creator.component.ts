@@ -28,16 +28,6 @@ export class DashboardCreatorComponent implements OnInit {
     this.loadCourses();
   }
 
-  cards = [
-    // Define tus datos de tarjeta aquí
-    { title: 'Tarjeta 1', content: 'Algún contenido para la tarjeta 1' },
-    { title: 'Tarjeta 2', content: 'Algún contenido para la tarjeta 2' },
-    { title: 'Tarjeta 3', content: 'Algún contenido para la tarjeta 2' },
-    { title: 'Tarjeta 3', content: 'Algún contenido para la tarjeta 2' },
-    // Agrega más tarjetas según sea necesario
-  ];
-
-
   loadCourses(): void {
     this.courseService.findByIdCreator("1012345678").subscribe({
       next: (response) => {
