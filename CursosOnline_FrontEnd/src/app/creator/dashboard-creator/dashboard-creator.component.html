@@ -21,9 +21,9 @@
   
     <div class="row mx-0">
       <!-- Curso 1 -->
-      <div class="col-lg-4 col-md-6 mb-4">
+      <div class="col-lg-4 col-md-6 mb-4" *ngFor="let course of coursesList;">
         <div class="courses-item position-relative">
-            <h4 class="text-center  text-white px-3">Web design & development courses for beginners</h4>
+            <h4 class="text-center  text-white px-3">{{course.name}}</h4>
             <div class="border-top w-100 mt-3">
               <div class="d-flex justify-content-between p-4">
                 <span class="text-white"><i class="fa fa-user mr-2"></i>Instructor: Jhon Doe</span>
@@ -37,83 +37,7 @@
         </div>
       </div>
   
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="courses-item position-relative">
-            <h4 class="text-center  text-white px-3">Web design & development courses for beginners</h4>
-            <div class="border-top w-100 mt-3">
-              <div class="d-flex justify-content-between p-4">
-                <span class="text-white"><i class="fa fa-user mr-2"></i>Instructor: Jhon Doe</span>
-                <br>
-                <span class="text-white"><i class="fa fa-star mr-2"></i>Calificación: 4.5 ⭐ </span>
-              </div>
-            </div>
-            <div class=" text-center p-4">
-              <a class="btn btn-secondary" href="detail.html">Inscribirse</a>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="courses-item position-relative">
-            <h4 class="text-center  text-white px-3">Web design & development courses for beginners</h4>
-            <div class="border-top w-100 mt-3">
-              <div class="d-flex justify-content-between p-4">
-                <span class="text-white"><i class="fa fa-user mr-2"></i>Instructor: Jhon Doe</span>
-                <br>
-                <span class="text-white"><i class="fa fa-star mr-2"></i>Calificación: 4.5 ⭐ </span>
-              </div>
-            </div>
-            <div class=" text-center p-4">
-              <a class="btn btn-secondary" href="detail.html">Inscribirse</a>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="courses-item position-relative">
-            <h4 class="text-center  text-white px-3">Web design & development courses for beginners</h4>
-            <div class="border-top w-100 mt-3">
-              <div class="d-flex justify-content-between p-4">
-                <span class="text-white"><i class="fa fa-user mr-2"></i>Instructor: Jhon Doe</span>
-                <br>
-                <span class="text-white"><i class="fa fa-star mr-2"></i>Calificación: 4.5 ⭐ </span>
-              </div>
-            </div>
-            <div class=" text-center p-4">
-              <a class="btn btn-secondary" href="detail.html">Inscribirse</a>
-            </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="courses-item position-relative">
-            <h4 class="text-center  text-white px-3">Web design & development courses for beginners</h4>
-            <div class="border-top w-100 mt-3">
-              <div class="d-flex justify-content-between p-4">
-                <span class="text-white"><i class="fa fa-user mr-2"></i>Instructor: Jhon Doe</span>
-                <br>
-                <span class="text-white"><i class="fa fa-star mr-2"></i>Calificación: 4.5 ⭐ </span>
-              </div>
-            </div>
-            <div class=" text-center p-4">
-              <a class="btn btn-secondary" href="detail.html">Inscribirse</a>
-            </div>
-        </div>
-      </div>
-  
-      <!-- Curso 6 -->
-      <div class="col-lg-4 col-md-6 mb-4">
-        <div class="courses-item position-relative">
-            <h4 class="text-center  text-white px-3">Web design & development courses for beginners</h4>
-            <div class="border-top w-100 mt-3">
-              <div class="d-flex justify-content-between p-4">
-                <span class="text-white"><i class="fa fa-user mr-2"></i>Instructor: Jhon Doe</span>
-                <br>
-                <span class="text-white"><i class="fa fa-star mr-2"></i>Calificación: 4.5 ⭐ </span>
-              </div>
-            </div>
-            <div class=" text-center p-4">
-              <a class="btn btn-secondary" href="detail.html">Inscribirse</a>
-            </div>
-        </div>
-      </div>
+      
   <!-- Courses End -->
   
 <app-footer></app-footer>

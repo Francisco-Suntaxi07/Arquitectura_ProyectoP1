@@ -25,6 +25,10 @@ export class CourseService {
     return this.http.post<any>(`${this.urlEndPoint}/save`, course);
   }
 
+  public findByIdCreator(idCreator: string): Observable<CourseModel[]> {
+    return this.http.get<CourseModel[]>(`${this.urlEndPoint}/creator/${idCreator}`);
+  }
+
   public delete(id: string): Observable<any> {
     return this.http.delete<any>(`${this.urlEndPoint}/delete/${id}`);
   }

@@ -5,6 +5,8 @@ import { SignupComponent } from 'src/app/login/signup/signup.component';
 import { CreatorService } from 'src/app/service/creator.service';
 import { UserService } from 'src/app/service/user.service';
 import { NewCourseComponent } from '../new-course/new-course.component';
+import { CourseService } from 'src/app/service/course.service';
+import { CourseModel } from 'src/app/model/courseModel';
 
 @Component({
   selector: 'app-dashboard-creator',
@@ -13,17 +15,49 @@ import { NewCourseComponent } from '../new-course/new-course.component';
 })
 export class DashboardCreatorComponent implements OnInit {
 
+  private _coursesList: CourseModel[] = [];
+
   constructor(
     public dialog: MatDialog,
     private userService: UserService,
     private creatorService: CreatorService,
-    private router: Router,
+    private courseService: CourseService,
   ) { }
 
   ngOnInit(): void {
+    this.loadCourses();
   }
+
+  cards = [
+    // Define tus datos de tarjeta aquí
+    { title: 'Tarjeta 1', content: 'Algún contenido para la tarjeta 1' },
+    { title: 'Tarjeta 2', content: 'Algún contenido para la tarjeta 2' },
+    { title: 'Tarjeta 3', content: 'Algún contenido para la tarjeta 2' },
+    { title: 'Tarjeta 3', content: 'Algún contenido para la tarjeta 2' },
+    // Agrega más tarjetas según sea necesario
+  ];
+
+
+  loadCourses(): void {
+    this.courseService.findByIdCreator("1012345678").subscribe({
+      next: (response) => {
+        this._coursesList = response;
+        console.log(this._coursesList)
+      },
+      error: (error) => {
+
+        console.log(error);
+      }
+    });
+  }
+
+
   openCreateCourse(): void {
     const dialogRef = this.dialog.open(NewCourseComponent);
+  }
+
+  public get coursesList(): CourseModel[] {
+    return this._coursesList;
   }
 
 }
