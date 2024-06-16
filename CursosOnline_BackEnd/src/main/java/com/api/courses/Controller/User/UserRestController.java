@@ -51,7 +51,10 @@ public class UserRestController {
     public ResponseEntity<?> login(@RequestBody UserEntity user) {
         UserEntity foundUser = userService.findByEmail(user.getEmail());
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
-            return ResponseEntity.ok().body("{\"role\": \"" + foundUser.getRole() + "\"}");
+            Map<String, String> responseBody = new HashMap<>();
+            responseBody.put("id", foundUser.getId());
+            responseBody.put("role", foundUser.getRole());
+            return ResponseEntity.ok().body(responseBody);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciales Inválidas");
         }
