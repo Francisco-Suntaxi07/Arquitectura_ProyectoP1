@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog'; 
 import { CreatorService } from 'src/app/service/creator.service';
 import { SignupComponent } from '../signup/signup.component';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -22,6 +23,7 @@ export class HomeComponent {
     private router: Router,
     private dialog: MatDialog,
     private creatorService: CreatorService,
+    private authService: AuthService
   ) {
     this.signInForm = this.fb.group({
       email: ['', [Validators.required]],
@@ -33,15 +35,16 @@ export class HomeComponent {
     if (this.signInForm.valid) {
       this.userService.login(this.signInForm.value).subscribe({
         next: (response: any) => {
+          console.log('Response User: ', response);
           const role = response.role;
-          console.log('Rol:', role);
           this.redirectBasedOnRole(role);
+          this.authService.login(response);
         },
         error: (err) => {
           this.creatorService.login(this.signInForm.value).subscribe({
             next: (response: any) => {
+              console.log('Response User | Error: ', response);
               const role = response.role;
-              console.log('Rol:', role);
               this.redirectBasedOnRole(role);
             },
             error: (err) => {
@@ -62,8 +65,9 @@ export class HomeComponent {
       this.router.navigate(['/consumer']);
     }
   }
+  
 
-  openSignIn(): void {
+  openSignUp(): void {
     const dialogRef = this.dialog.open(SignupComponent);
     dialogRef.afterClosed().subscribe(result => {
       this.userService.findAll().subscribe(dataListUser => {

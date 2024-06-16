@@ -32,7 +32,6 @@ export class DashboardCreatorComponent implements OnInit {
     this.courseService.findByIdCreator("1012345678").subscribe({
       next: (response) => {
         this._coursesList = response;
-        console.log(this._coursesList)
       },
       error: (error) => {
 

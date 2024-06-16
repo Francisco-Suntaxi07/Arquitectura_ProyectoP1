@@ -29,7 +29,6 @@ export class AccountsComponent implements OnInit {
     this.creatorService.findDisable().subscribe({
       next: (response) => {
         this._creatorDisabledList = response;
-        console.log(this._creatorDisabledList)
       },
       error: (error) => {
         this.snackBar.open("⛔ Ocurrió un error al procesar las solicitudes", "Cerrar", {

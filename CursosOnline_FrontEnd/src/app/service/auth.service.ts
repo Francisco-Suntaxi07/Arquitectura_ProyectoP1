@@ -12,12 +12,12 @@ export class AuthService {
   constructor() { }
 
   // Método para iniciar sesión
-  login(user: UserModel | CreatorModel): void {
+  login(user: UserModel | CreatorModel | any): void {
     localStorage.setItem(this.currentUserKey, JSON.stringify(user));
   }
 
   // Método para obtener el usuario actual
-  getCurrentUser(): UserModel | CreatorModel | null {
+  getCurrentUser(): UserModel | CreatorModel | any | null {
     const userString = localStorage.getItem(this.currentUserKey);
     if (userString) {
       return JSON.parse(userString);
