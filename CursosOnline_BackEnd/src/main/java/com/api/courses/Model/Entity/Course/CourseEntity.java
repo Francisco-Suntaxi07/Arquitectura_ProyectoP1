@@ -36,7 +36,11 @@ public class CourseEntity {
 
     @Column(name = "fecha_fin_curso")
     private LocalDate endDate;
-
+    public class CourseStatus {
+        public static final String ACTIVE = "Activo";
+        public static final String INACTIVE = "Inactivo";
+        public static final String IN_PROGRESS = "En construcción";
+    }
     public CourseEntity() {
         super();
     }
