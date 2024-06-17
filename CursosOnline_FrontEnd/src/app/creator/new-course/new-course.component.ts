@@ -6,6 +6,7 @@ import { SignupComponent } from 'src/app/login/signup/signup.component';
 import { CourseModel } from 'src/app/model/courseModel';
 import { CreatorModel } from 'src/app/model/creatorModel';
 import { UserModel } from 'src/app/model/userModel';
+import { AuthService } from 'src/app/service/auth.service';
 import { CourseService } from 'src/app/service/course.service';
 import { CreatorService } from 'src/app/service/creator.service';
 import { UserService } from 'src/app/service/user.service';
@@ -32,6 +33,7 @@ export class NewCourseComponent {
     private _formBuilder: FormBuilder,
     private courseService: CourseService,
     private snackBar: MatSnackBar,
+    private authService: AuthService,
   ) { }
 
 
@@ -39,7 +41,7 @@ export class NewCourseComponent {
     let course: CourseModel = new CourseModel;
 
     course = this.createCourseForm.value;
-    course.creator = "1012345678"
+    course.creator = this.authService.getCurrentUser()?.id;
     this.courseService.save(course).subscribe({
       next: () => {
         this.snackBar.open("✅ Curso creado correctamente", "Cerrar", {

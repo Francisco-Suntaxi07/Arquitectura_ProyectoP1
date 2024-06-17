@@ -14,7 +14,7 @@ export class AuthService {
   // Método para iniciar sesión
   login(user: UserModel | CreatorModel | any): void {
     localStorage.setItem(this.currentUserKey, JSON.stringify(user));
-    console.log('Usuario actual:', user);
+    //console.log('Usuario actual:', user);
   }
 
   // Método para obtener el usuario actual

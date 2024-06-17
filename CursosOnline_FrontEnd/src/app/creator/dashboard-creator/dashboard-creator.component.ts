@@ -7,6 +7,7 @@ import { UserService } from 'src/app/service/user.service';
 import { NewCourseComponent } from '../new-course/new-course.component';
 import { CourseService } from 'src/app/service/course.service';
 import { CourseModel } from 'src/app/model/courseModel';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-dashboard-creator',
@@ -17,21 +18,25 @@ export class DashboardCreatorComponent implements OnInit {
 
   private _coursesList: CourseModel[] = [];
 
+  private idUser: string = "";
+
   constructor(
     public dialog: MatDialog,
-    private userService: UserService,
     private creatorService: CreatorService,
     private courseService: CourseService,
+    private authService: AuthService,
   ) { }
 
   ngOnInit(): void {
-    this.loadCourses();
+    this.idUser = this.authService.getCurrentUser()?.id;
+    this.loadCourses(this.idUser);
   }
 
-  loadCourses(): void {
-    this.courseService.findByIdCreator("1012345678").subscribe({
+  loadCourses(idUser: string): void {
+    this.courseService.findByIdCreator(idUser).subscribe({
       next: (response) => {
         this._coursesList = response;
+        console.log(this._coursesList);
       },
       error: (error) => {
 
@@ -43,6 +48,9 @@ export class DashboardCreatorComponent implements OnInit {
 
   openCreateCourse(): void {
     const dialogRef = this.dialog.open(NewCourseComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.loadCourses(this.idUser);
+    });
   }
 
   public get coursesList(): CourseModel[] {

@@ -43,9 +43,10 @@ export class HomeComponent {
         error: (err) => {
           this.creatorService.login(this.signInForm.value).subscribe({
             next: (response: any) => {
-              console.log('Response User | Error: ', response);
+              console.log('Response Creator: ', response);
               const role = response.role;
               this.redirectBasedOnRole(role);
+              this.authService.login(response);
             },
             error: (err) => {
               this.snackBar.open('Login failed', 'Close', { duration: 2500 });
