@@ -58,6 +58,7 @@ public class CreatorRestController {
         Optional<CreatorEntity> foundCreator = creatorService.findByEmailAndPassword(creator.getEmail(), creator.getPassword());
         if (foundCreator.isPresent()) {
             Map<String, String> response = new HashMap<>();
+            response.put("id", foundCreator.get().getId());
             response.put("role", foundCreator.get().getRole());
             return ResponseEntity.ok().body(response);
         } else {
