@@ -18,7 +18,8 @@ export class DashboardCreatorComponent implements OnInit {
 
   private _coursesList: CourseModel[] = [];
 
-  private idUser: string = "";
+  private _idUser: string = "";
+  userName: string = "";
 
   constructor(
     public dialog: MatDialog,
@@ -28,15 +29,15 @@ export class DashboardCreatorComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.idUser = this.authService.getCurrentUser()?.id;
-    this.loadCourses(this.idUser);
+    this._idUser = this.authService.getCurrentUser()?.id;
+    this.userName = this.authService.getCurrentUser()?.name;
+    this.loadCourses(this._idUser);
   }
 
   loadCourses(idUser: string): void {
     this.courseService.findByIdCreator(idUser).subscribe({
       next: (response) => {
         this._coursesList = response;
-        console.log(this._coursesList);
       },
       error: (error) => {
 
@@ -49,7 +50,7 @@ export class DashboardCreatorComponent implements OnInit {
   openCreateCourse(): void {
     const dialogRef = this.dialog.open(NewCourseComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.loadCourses(this.idUser);
+      this.loadCourses(this._idUser);
     });
   }
 
