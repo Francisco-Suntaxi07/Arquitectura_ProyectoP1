@@ -27,7 +27,6 @@ export class DashboardConsumerComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCourses();
-    console.log(this.authService.getCurrentUser()?.id);
   }
 
   loadCourses(): void {
