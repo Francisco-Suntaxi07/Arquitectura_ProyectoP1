@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import { AllCoursesComponent } from './consumer/all-courses/all-courses.component';
 const routes: Routes = [
   {
     path: '',
@@ -18,6 +18,11 @@ const routes: Routes = [
     path: 'consumer', 
     loadChildren: () => import('./consumer/consumer.module').then(m => m.ConsumerModule)
   },
+  {
+    path: 'all-courses',
+    component: AllCoursesComponent 
+  }
+  
 ];
 
 @NgModule({

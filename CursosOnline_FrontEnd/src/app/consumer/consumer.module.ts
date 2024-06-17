@@ -5,12 +5,14 @@ import { ConsumerRoutingModule } from './consumer-routing.module';
 import { DashboardConsumerComponent } from './dashboard-consumer/dashboard-consumer.component';
 import { SharedModule } from '../shared/shared.module';
 import { AllCoursesComponent } from './all-courses/all-courses.component';
+import { CourseInscriptionComponent } from './course-inscription/course-inscription.component';
 
 
 @NgModule({
   declarations: [
     DashboardConsumerComponent,
-    AllCoursesComponent
+    AllCoursesComponent,
+    CourseInscriptionComponent
   ],
   imports: [
     CommonModule,

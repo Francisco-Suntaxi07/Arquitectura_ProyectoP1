@@ -14,5 +14,5 @@ public interface ISubscriptionService {
     public SubscriptionEntity saveSubscription(SubscriptionEntity subscription);
 
     public Boolean deteleSubscriptionById(Long id);
-
+    public Boolean isUserAlreadyEnrolled(String userId, Long courseId);
 }

@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { CourseService } from 'src/app/service/course.service';
 import { CreatorService } from 'src/app/service/creator.service';
 import { CourseModel } from 'src/app/model/courseModel';
 import { forkJoin } from 'rxjs';
 import { AuthService } from 'src/app/service/auth.service';
-
+import { CourseInscriptionComponent } from '../course-inscription/course-inscription.component';
 @Component({
   selector: 'app-dashboard-consumer',
   templateUrl: './dashboard-consumer.component.html',
@@ -22,7 +23,8 @@ export class DashboardConsumerComponent implements OnInit {
   constructor(
     private courseService: CourseService, 
     private creatorService: CreatorService, 
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -50,6 +52,19 @@ export class DashboardConsumerComponent implements OnInit {
       },
       error: (err) => {
         console.error('Error loading courses', err);
+      }
+    });
+  }
+  openInscriptionModal(course: CourseModel): void {
+    const dialogRef = this.dialog.open(CourseInscriptionComponent, {
+      width: '400px',
+      data: { course }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        console.log('Inscripción confirmada para el curso:', result);
+        // Aquí puedes agregar la lógica para manejar la inscripción
       }
     });
   }
