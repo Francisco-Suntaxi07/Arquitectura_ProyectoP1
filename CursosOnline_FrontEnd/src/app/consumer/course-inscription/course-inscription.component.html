@@ -1,0 +1,21 @@
+<h2 class="heading mat-dialog-title">Inscripción en Curso</h2>
+<div class="container mat-dialog-content">
+  <p><strong>Nombre del Curso:</strong> {{ data.course.name }}</p>
+  <p><strong>Descripción:</strong> {{ data.course.description }}</p>
+  <p><strong>Inicio:</strong> {{ data.course.startDate | date }}</p>
+  <p><strong>Fin:</strong> {{ data.course.endDate | date }}</p>
+  <p><strong>Estado:</strong> {{ data.course.status }}</p>
+</div>
+<div class="container mat-dialog-actions" mat-dialog-actions align="end">
+  <div class="text-center p-4">
+    <button class="btn btn-confirm" (click)="onConfirm()">Confirmar Inscripción</button>
+    <span style="margin: 0 10px;"></span>
+    <button class="btn btn-cancel" (click)="onCancel()">Cancelar</button>
+  </div>
+</div>
+<div *ngIf="successMessage" class="container mt-2 text-success">
+  {{ successMessage }}
+</div>
+<div *ngIf="errorMessage" class="container mt-2 text-danger">
+  {{ errorMessage }}
+</div>
