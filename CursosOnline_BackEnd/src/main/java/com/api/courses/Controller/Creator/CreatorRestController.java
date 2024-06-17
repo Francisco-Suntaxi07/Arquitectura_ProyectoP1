@@ -59,7 +59,9 @@ public class CreatorRestController {
         if (foundCreator.isPresent()) {
             Map<String, String> response = new HashMap<>();
             response.put("id", foundCreator.get().getId());
+            response.put("name", foundCreator.get().getName());
             response.put("role", foundCreator.get().getRole());
+            response.put("status", foundCreator.get().getStatusAccount().toString());
             return ResponseEntity.ok().body(response);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");

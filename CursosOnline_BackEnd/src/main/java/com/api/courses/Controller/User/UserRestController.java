@@ -53,6 +53,7 @@ public class UserRestController {
         if (foundUser != null && foundUser.getPassword().equals(user.getPassword())) {
             Map<String, String> responseBody = new HashMap<>();
             responseBody.put("id", foundUser.getId());
+            responseBody.put("name", foundUser.getName());
             responseBody.put("role", foundUser.getRole());
             return ResponseEntity.ok().body(responseBody);
         } else {
