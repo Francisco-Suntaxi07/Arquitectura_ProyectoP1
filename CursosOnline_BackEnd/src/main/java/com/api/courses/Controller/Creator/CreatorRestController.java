@@ -69,8 +69,14 @@ public class CreatorRestController {
         }
     }
 
-    @PatchMapping("/updateCourses/{id}")
-    public ResponseEntity<Optional<CreatorEntity>> updateNumberCourses(@PathVariable String id, @RequestBody int numberCourses){
+    @PatchMapping(value = "/updateCourses/{id}",consumes = "text/plain")
+    public ResponseEntity<Optional<CreatorEntity>> updateNumberCourses(@PathVariable String id, @RequestBody String numberCoursesStr){
+        int numberCourses;
+        try {
+            numberCourses = Integer.parseInt(numberCoursesStr);
+        } catch (NumberFormatException e) {
+            return ResponseEntity.badRequest().build();
+        }
         Optional<CreatorEntity> response = creatorService.updateNumberCourses(id,numberCourses);
         if (response.isPresent()){
             return ResponseEntity.noContent().build();
