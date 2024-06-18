@@ -35,4 +35,13 @@ export class CreatorService {
   public login(credentials: { email: string, password: string }): Observable<any> {
     return this.http.post<any>(`${this.urlEndPoint}/login`, credentials);
   }
+
+  
+  public updateNumberCourses(id: string, numberCourses: number): Observable<any> {
+    const body = { numberCourses: numberCourses };
+    return this.http.patch<any>(`${this.urlEndPoint}/updateCourses/${id}`, numberCourses, {
+      headers: { 'Content-Type': 'text/plain' }
+    });
+  }
+
 }

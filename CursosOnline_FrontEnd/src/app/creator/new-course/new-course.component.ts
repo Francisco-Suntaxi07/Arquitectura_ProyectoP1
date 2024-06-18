@@ -16,9 +16,13 @@ import { UserService } from 'src/app/service/user.service';
   templateUrl: './new-course.component.html',
   styleUrls: ['./new-course.component.scss']
 })
-export class NewCourseComponent {
+export class NewCourseComponent implements OnInit {
 
   minDate = new Date();
+
+  private maxCourses: number = 2;
+  private creatorId: string = "";
+  private creatorNumCourses: number = 0;
 
   private _createCourseForm: FormGroup = this._formBuilder.group({
     name: ['', [Validators.required]],
@@ -34,28 +38,50 @@ export class NewCourseComponent {
     private courseService: CourseService,
     private snackBar: MatSnackBar,
     private authService: AuthService,
+    private creatorService: CreatorService
   ) { }
 
-
-  saveNewCourse(): void {
-    let course: CourseModel = new CourseModel;
-
-    course = this.createCourseForm.value;
-    course.creator = this.authService.getCurrentUser()?.id;
-    this.courseService.save(course).subscribe({
-      next: () => {
-        this.snackBar.open("✅ Curso creado correctamente", "Cerrar", {
-          duration: 2500
-        });
-        this.dialogRef.close();
-      },
-      error: (error) => {
-        this.snackBar.open("⛔ Ocurrió un error al crear un nuevo curso", "Cerrar", {
-          duration: 2500
-        });
-        console.log(error);
+  ngOnInit(): void {
+    this.creatorId = this.authService.getCurrentUser()?.id;
+    this.creatorService.findById(this.creatorId).subscribe({
+      next: (response) => {
+        this.creatorNumCourses = response.numberCourses;
       }
     });
+  }
+
+  saveNewCourse(): void {
+    if (this.creatorNumCourses < this.maxCourses) {
+      let course: CourseModel = new CourseModel;
+      course = this.createCourseForm.value;
+      course.creator = this.creatorId;
+
+      this.courseService.save(course).subscribe({
+        next: () => {
+          this.snackBar.open("✅ Curso creado correctamente", "Cerrar", {
+            duration: 2500
+          });
+          this.creatorNumCourses = this.creatorNumCourses + 1;
+          this.creatorService.updateNumberCourses(this.creatorId, this.creatorNumCourses).subscribe({
+            error: (error) => {
+              console.log(error);
+            }
+          });
+          this.dialogRef.close();
+        },
+        error: (error) => {
+          this.snackBar.open("⛔ Ocurrió un error al crear un nuevo curso", "Cerrar", {
+            duration: 2500
+          });
+          console.log(error);
+        }
+      });
+    } else {
+      this.snackBar.open("❌ Usted ya posee el numero maximo de cursos creados permitidos", "Cerrar", {
+        duration: 3000
+      });
+    }
+
   }
 
 

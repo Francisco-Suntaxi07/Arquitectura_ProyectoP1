@@ -40,7 +40,6 @@ export class DashboardCreatorComponent implements OnInit {
         this._coursesList = response;
       },
       error: (error) => {
-
         console.log(error);
       }
     });
@@ -51,6 +50,7 @@ export class DashboardCreatorComponent implements OnInit {
     const dialogRef = this.dialog.open(NewCourseComponent);
     dialogRef.afterClosed().subscribe(result => {
       this.loadCourses(this._idUser);
+      //location.reload();
     });
   }
 
