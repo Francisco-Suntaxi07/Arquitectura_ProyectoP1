@@ -42,8 +42,22 @@ public class CreatorService implements ICreatorService{
     public Optional<CreatorEntity> findByEmailAndPassword(String email, String password) {
         return creatorRepository.findByEmailAndPassword(email, password);
     }
+
     @Override
     public List<CreatorEntity> findAllDisableCreators() {
         return creatorRepository.findAllDisable().orElse(new ArrayList<>());
     }
+
+    @Override
+    public Optional<CreatorEntity> updateNumberCourses(String id, int numberCourses) {
+        Optional<CreatorEntity> creatorFound = creatorRepository.findById(id);
+        if(creatorFound.isPresent()){
+            CreatorEntity creator = creatorFound.get();
+            creator.setNumberCourses(numberCourses);
+            creatorRepository.save(creator);
+            return Optional.of(creator);
+        }
+        return Optional.empty();
+    }
+
 }

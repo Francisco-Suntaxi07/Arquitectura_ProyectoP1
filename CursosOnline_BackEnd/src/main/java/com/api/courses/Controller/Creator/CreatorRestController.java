@@ -69,6 +69,15 @@ public class CreatorRestController {
         }
     }
 
+    @PatchMapping("/updateCourses/{id}")
+    public ResponseEntity<Optional<CreatorEntity>> updateNumberCourses(@PathVariable String id, @RequestBody int numberCourses){
+        Optional<CreatorEntity> response = creatorService.updateNumberCourses(id,numberCourses);
+        if (response.isPresent()){
+            return ResponseEntity.noContent().build();
+        }
+        return  ResponseEntity.notFound().build();
+    }
+
     protected ResponseEntity<?> validate(BindingResult result){
         Map<String, Object> errores = new HashMap<>();
         result.getFieldErrors().forEach(err -> {

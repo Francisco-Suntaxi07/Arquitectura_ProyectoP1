@@ -17,4 +17,7 @@ public interface ICreatorService {
 
     public List<CreatorEntity> findAllDisableCreators();
     public Optional<CreatorEntity> findByEmailAndPassword(String email, String password);
+
+    public Optional<CreatorEntity> updateNumberCourses(String id, int numberCourses);
+
 }
