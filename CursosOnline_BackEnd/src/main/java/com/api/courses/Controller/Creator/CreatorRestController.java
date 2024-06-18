@@ -62,6 +62,7 @@ public class CreatorRestController {
             response.put("name", foundCreator.get().getName());
             response.put("role", foundCreator.get().getRole());
             response.put("status", foundCreator.get().getStatusAccount().toString());
+            response.put("numberCourses", String.valueOf(foundCreator.get().getNumberCourses()));
             return ResponseEntity.ok().body(response);
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
