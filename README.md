@@ -13,6 +13,6 @@ Servidor del sitio web
 ## CursosOnline_FrontEnd
 Cliente del sitio web  
 **Herramientas:**
-- NodeJs (LTS) 20.14.0  (Npm 10.8.1)
-- Angular CLI 18.0.3
+- NodeJs (LTS) 16.10.0  (Npm 10.8.1)
+- Angular CLI 13.3.10
 
