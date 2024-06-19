@@ -1,42 +1,39 @@
 <app-header></app-header>
 
-<div class="jumbotron jumbotron-fluid position-relative">
-    
-</div>
+<div class="jumbotron jumbotron-fluid position-relative"></div>
 
 <div class="container-fluid py-5" style="margin-bottom: -250px;">
-    <div class="row justify-content-center">
-        <div class="col-lg-8 col-md-10">
-            <!-- Barra de búsqueda -->
-            <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Buscar curso por nombre" [(ngModel)]="searchText" (input)="filterCourses()">
-                <div class="input-group-append">
-                    <button class="btn btn-outline-secondary" type="button" (click)="filterCourses()">Buscar</button>
-                </div>
-            </div>
-
-            
-            <div class="row">
-                <ng-container *ngIf="filteredCourses.length > 0; else noCourses">
-                    <div class="col-12" *ngFor="let course of filteredCourses">
-                        <div class="card mb-3">
-                            <div class="card-body">
-                                <h5 class="card-title">{{ course.name }}</h5>
-                                <p class="card-text">{{ course.description }}</p>
-                                <p class="card-text"><strong>Inicio:</strong> {{ course.startDate | date }}</p>
-                                <p class="card-text"><strong>Fin:</strong> {{ course.endDate | date }}</p>
-                                <p class="card-text"><strong>Estado:</strong> {{ course.status }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </ng-container>
-            </div>
-
-            <ng-template #noCourses>
-                <div class="alert alert-warning" role="alert">
-                    No se encontraron cursos.
-                </div>
-            </ng-template>
+  <div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+      <!-- Barra de búsqueda -->
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Buscar curso por nombre" [(ngModel)]="searchText" (input)="filterCourses()">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="button" (click)="filterCourses()">Buscar</button>
         </div>
+      </div>
+
+      <div class="row">
+        <ng-container *ngIf="filteredCourses.length > 0; else noCourses">
+          <div class="col-12" *ngFor="let course of filteredCourses">
+            <div class="card mb-3">
+              <div class="card-body">
+                <h5 class="card-title">{{ course.name }}</h5>
+                <p class="card-text">{{ course.description }}</p>
+                <p class="card-text"><strong>Inicio:</strong> {{ course.startDate | date }}</p>
+                <p class="card-text"><strong>Fin:</strong> {{ course.endDate | date }}</p>
+                <p class="card-text"><strong>Estado:</strong> {{ course.status }}</p>
+              </div>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+
+      <ng-template #noCourses>
+        <div class="alert alert-warning" role="alert">
+          No se encontraron cursos.
+        </div>
+      </ng-template>
     </div>
+  </div>
 </div>

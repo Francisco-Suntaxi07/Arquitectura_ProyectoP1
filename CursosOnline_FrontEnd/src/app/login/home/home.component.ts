@@ -37,20 +37,24 @@ export class HomeComponent {
         next: (response: any) => {
           console.log('Response User: ', response);
           const role = response.role;
-          this.redirectBasedOnRole(role);
           this.authService.login(response);
+          this.redirectBasedOnRole(role);
         },
         error: (err) => {
           this.creatorService.login(this.signInForm.value).subscribe({
             next: (response: any) => {
               console.log('Response Creator: ', response);
-              const role = response.role;
-              this.redirectBasedOnRole(role);
-              this.authService.login(response);
+              if (response.status === 'true') {
+                const role = response.role;
+                this.authService.login(response);
+                this.redirectBasedOnRole(role);
+              } else {
+                this.snackBar.open('Tu cuenta está desactivada. Por favor, contacta al soporte.', 'Cerrar', { duration: 3000 });
+              }
             },
             error: (err) => {
-              this.snackBar.open('Login failed', 'Close', { duration: 2500 });
-              console.error('Login failed', err);
+              this.snackBar.open('Error al iniciar sesión', 'Cerrar', { duration: 3000 });
+              console.error('Error al iniciar sesión', err);
             }
           });
         }
