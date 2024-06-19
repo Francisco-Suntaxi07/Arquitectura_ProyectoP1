@@ -74,12 +74,12 @@ INSERT INTO creador (id_creador, nombre_creador, correo_creador, contrasenia_cre
 
 
 -- DATOS DE CURSO
-INSERT INTO curso (id_creador, nombre_curso, descripcion_curso, estado_curso, fecha_inicio_curso, fecha_fin_curso) VALUES
-('1012345678','Programación de redes neuronales con python', 'Curso introductorio de programación de redes neuronales convolucionales en Python', 'En construcción', '2024-07-01', '2024-08-30'),  -- Creado por Luis Espinosa
-('1012345678','Diseño Gráfico Avanzado', 'Curso avanzado de diseño gráfico', 'Inactivo', '2024-06-15', '2024-08-15'),  -- Creado por Luis Espinosa
-('1012345678','Introducción a la Inteligencia Artificial', 'Curso básico sobre IA', 'Activo', '2024-07-10', '2024-09-10');  -- Creado por Nombre del admin
+-- INSERT INTO curso (id_creador, nombre_curso, descripcion_curso, estado_curso, fecha_inicio_curso, fecha_fin_curso) VALUES
+-- ('1012345678','Programación de redes neuronales con python', 'Curso introductorio de programación de redes neuronales convolucionales en Python', 'En construcción', '2024-07-01', '2024-08-30'),  -- Creado por Luis Espinosa
+-- ('1012345678','Diseño Gráfico Avanzado', 'Curso avanzado de diseño gráfico', 'Inactivo', '2024-06-15', '2024-08-15'),  -- Creado por Luis Espinosa
+-- ('1012345678','Introducción a la Inteligencia Artificial', 'Curso básico sobre IA', 'Activo', '2024-07-10', '2024-09-10');  -- Creado por Nombre del admin
 
 
 -- DATOS SUBSCRIPCION
-INSERT INTO subscripcion(id_usuario, id_curso) VALUE
-('1787654321',1);
+-- INSERT INTO subscripcion(id_usuario, id_curso) VALUE
+-- ('1787654321',1);
